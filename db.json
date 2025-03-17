@@ -1,1 +1,90 @@
-{"users":[{"id":1,"name":"Abolfazl","username":11,"email":"Abolfazl@gmai.com","crime":0,"role":"ADMIN"},{"id":2,"name":"Reza","username":12,"email":"Reza@gmai.com","crime":1,"role":"USER"},{"id":3,"name":"Amir","username":13,"email":"Amir@gmai.com","crime":0,"role":"USER"},{"id":4,"name":"Ali","username":14,"crime":0,"role":"USER"},{"id":0.1721151481497798,"name":"Max","username":"Alex","email":"Max@gmail.com","crime":0,"role":"USER"},{"id":0.5424884190891153,"name":"Max","username":"Alex","email":"Max@gmail.com","crime":0,"role":"USER"}],"books":[{"id":13,"title":"Golestan","author":"Saddi","price":100,"free":1},{"id":14,"title":"D","author":"A11","price":40,"free":0},{"id":0.05114815778947812,"title":"E","author":"A12","price":50,"free":1},{"id":0.39147499940197794,"title":"F","author":"A13","price":60,"free":1}]}
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Abolfazl",
+            "username": 11,
+            "email": "Abolfazl@gmai.com",
+            "crime": 0,
+            "role": "ADMIN"
+        },
+        {
+            "id": 2,
+            "name": "Reza",
+            "username": 12,
+            "email": "Reza@gmai.com",
+            "crime": 100,
+            "role": "ADMIN"
+        },
+        {
+            "id": 3,
+            "name": "Amir",
+            "username": 13,
+            "email": "Amir@gmai.com",
+            "crime": 0,
+            "role": "USER"
+        },
+        {
+            "id": 4,
+            "name": "Ali",
+            "username": 14,
+            "crime": 0,
+            "role": "USER"
+        },
+        {
+            "id": 0.1721151481497798,
+            "name": "Max",
+            "username": "Alex",
+            "email": "Max@gmail.com",
+            "crime": 0,
+            "role": "USER"
+        },
+        {
+            "id": 0.5424884190891153,
+            "name": "Max",
+            "username": "Alex",
+            "email": "Max@gmail.com",
+            "crime": 0,
+            "role": "USER"
+        },
+        {
+            "id": 0.09758991554353647,
+            "name": "Ahmad",
+            "username": 1000,
+            "email": "Ahmad@gmail.com",
+            "crime": 0,
+            "role": "USER"
+        }
+    ],
+    "books": [
+        {
+            "id": 13,
+            "title": "Golestan",
+            "author": "Saddi",
+            "price": 100,
+            "free": 1
+        },
+        {
+            "id": 14,
+            "title": "D",
+            "author": "A11",
+            "price": 40,
+            "free": 0
+        },
+        {
+            "id": 0.05114815778947812,
+            "title": "E",
+            "author": "A12",
+            "price": 50,
+            "free": 1
+        },
+        {
+            "id": 0.39147499940197794,
+            "title": "F",
+            "author": "A13",
+            "price": 60,
+            "free": 1
+        }
+    ],
+    "rents": []
+}
