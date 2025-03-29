@@ -277,3 +277,113 @@ const server = http.createServer((req, res) => {
 server.listen(4000, () => {
     console.log("Server is running on port 4000")
 })
+
+
+// const http = require('http');
+// const redis = require('redis');
+// const url = require('url');
+// // Create a Redis client
+
+// // Create Redis Client for DB 0 for id and data
+// const redisClientData = redis.createClient({
+//   url: 'redis://127.0.0.1:6379/0'
+// });
+
+// //Create Redis Client for DB 1 for id and parent
+// const redisClientRelation = redis.createClient({
+//   url: 'redis://127.0.0.1:6379/1'
+// });
+
+// // Connect both Redis client
+// Promise.all([
+//   redisClientData.connect(),
+//   redisClientRelation.connect()
+// ]).then(() => {
+//   console.log('Connected to both Redis databases');
+// }).catch(err => {
+//   console.error('Redis connection error: ', err);
+// });
+
+// // Create Server
+// const server = http.createServer((req, res) => {
+//   if(req.method === 'POST' && req.url === '/dataService'){
+//     let body = '';
+//     req.on('data', chunk => {
+//       return body += chunk.toString();
+//     });
+//     req.on('end', async () => {
+//       try{
+//         // Parse JSON from client
+//         const jsonData = JSON.parse(body);
+//         const {id, data, parent} = jsonData;
+
+//         // Validate required fields
+//         if(!id || !data || !parent){
+//           throw new Error('Missing required fields: id, data, or parent');
+//         }
+
+//         // Save id and data in Database 0
+//         await redisClientData.set(id, JSON.stringify(data));
+
+//         // Save id and parent in Database 1
+//         await redisClientRelation.set(id, parent);
+
+//         // Send success respone
+//         res.writeHead(201, {'content-type': 'application/json'});
+//         res.write(JSON.stringify({
+//             massage: 'Logged and data saved successfully', 
+//             id
+//         }));
+//         res.end();
+//       }
+//       catch(error){
+//         res.writeHead(400, {'Content-type': 'application/json'});
+//         res.write(JSON.stringify({
+//             error: 'Invalid JSON or processing error',
+//             details: error.massage
+//         }));
+//         res.end();
+//       }
+//     });
+//   }
+//   else if(req.method === 'GET' && req.url === '/dataService'){
+//     let body = "";
+//     req.on('data', chunk => body += chunk.toString());
+//     req.on('end', async() => {
+//         const id = JSON.parse(body);
+//         const data = JSON.parse(await redisClientData.get(id));
+//         const parent = await redisClientRelation.get(id);
+//         console.log( data, parent);
+//         // res.writeHead(200, {'content-type': 'application/json'});
+//         // res.write(JSON.stringify({
+//         //     data,
+//         //     parent
+//         // }));
+//         // res.end();
+//     });
+//   }
+//   else{
+//     res.writeHead(404, {'content-type': 'application/json'});
+//     res.write(JSON.stringify({error: 'Route not found or method not allowed'}));
+//     res.end();
+//   }
+// });
+
+// // Start server
+// server.listen(81, '127.0.0.1', () => {
+//   console.log('Server is running on port 81');
+// });
+
+// // Handle Redis client errors
+// redisClientData.on('error', err => console.error('Redis Data Error:', err));
+
+// redisClientRelation.on('error', err => console.error('Redis Relation Error:', err));
+
+// // Graceful shutdown
+// process.on('SIGINT', async () => {
+//     await Promise.all([redisClientData.quit(), redisClientRelation.quit()]);
+//     server.close(() => {
+//         console.log('Server and Redis connections closed');
+//         process.exit(0);
+//     });
+// });
